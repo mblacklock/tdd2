@@ -23,8 +23,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 if os.getenv("DJANGO_DEBUG_FALSE") =="Y":
     DEBUG = False
-    SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
-    ALLOWED_HOSTS = [os.environ['SITENAME']]
+    SECRET_KEY = os.getenv['DJANGO_SECRET_KEY']
+    ALLOWED_HOSTS = [os.getenv['SITENAME']]
 else:
     DEBUG = True
     SECRET_KEY = 'insecure-key-for-dev'
