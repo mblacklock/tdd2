@@ -21,7 +21,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ##from dotenv import read_dotenv
 ##read_dotenv(os.path.join(BASE_DIR, '.env'))
 
-if 'DJANGO_DEBUG_FALSE' in os.environ:
+if os.getenv("DJANGO_DEBUG_FALSE") = "Y":
     DEBUG = False
     SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
     ALLOWED_HOSTS = [os.environ['SITENAME']]
