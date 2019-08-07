@@ -21,16 +21,18 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 ##### TURN ON SECURITY FOR PRODUCTION #####
 from dotenv import load_dotenv
-project_folder = os.path.expanduser('~/tdd2')
-load_dotenv(os.path.join(project_folder, '.env'))
-if 'DJANGO_DEBUG_FALSE' in os.environ:
-    DEBUG = False
-    SECRET_KEY = os.environ['DJANGO_SECRET_KEY']  
-    ALLOWED_HOSTS = [os.environ['SITENAME']]  
-else:
-    DEBUG = True  
+load_dotenv(os.path.join(BASE_DIR, '.env'))
+
+if 'DJANGO_DEBUG_TRUE' in os.environ:
+    print('debug=true')
+    DEBUG = True
     SECRET_KEY = 'insecure-key-for-dev'
     ALLOWED_HOSTS = []
+else:
+    print('debug=false')
+    DEBUG = False
+    SECRET_KEY = os.environ['DJANGO_SECRET_KEY']  
+    ALLOWED_HOSTS = [os.environ['SITENAME']]   
 
 
 # SECURITY WARNING: keep the secret key used in production secret!
