@@ -24,25 +24,13 @@ from dotenv import load_dotenv
 load_dotenv(os.path.join(BASE_DIR, '.env'))
 
 if 'DJANGO_DEBUG_TRUE' in os.environ:
-    print('debug=true')
     DEBUG = True
     SECRET_KEY = 'insecure-key-for-dev'
     ALLOWED_HOSTS = []
 else:
-    print('debug=false')
     DEBUG = False
     SECRET_KEY = os.environ['DJANGO_SECRET_KEY']  
-    ALLOWED_HOSTS = [os.environ['SITENAME']]   
-
-
-# SECURITY WARNING: keep the secret key used in production secret!
-#SECRET_KEY = '9d=wi7!ezi95mxrwd5s+++gztvr7$nonv&aj$0co-8+^gql)k+'
-
-# SECURITY WARNING: don't run with debug turned on in production!
-#DEBUG = True
-
-#ALLOWED_HOSTS = ['*']
-
+    ALLOWED_HOSTS = [os.environ['SITENAME']]
 
 # Application definition
 
