@@ -19,13 +19,27 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
+##### TURN ON SECURITY FOR PRODUCTION #####
+from dotenv import load_dotenv
+project_folder = os.path.expanduser('~/tdd2')
+load_dotenv(os.path.join(project_folder, '.env'))
+if 'DJANGO_DEBUG_FALSE' in os.environ:
+    DEBUG = False
+    SECRET_KEY = os.environ['DJANGO_SECRET_KEY']  
+    ALLOWED_HOSTS = [os.environ['SITENAME']]  
+else:
+    DEBUG = True  
+    SECRET_KEY = 'insecure-key-for-dev'
+    ALLOWED_HOSTS = []
+
+
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '9d=wi7!ezi95mxrwd5s+++gztvr7$nonv&aj$0co-8+^gql)k+'
+#SECRET_KEY = '9d=wi7!ezi95mxrwd5s+++gztvr7$nonv&aj$0co-8+^gql)k+'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+#DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+#ALLOWED_HOSTS = ['*']
 
 
 # Application definition
