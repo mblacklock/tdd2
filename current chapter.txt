@@ -1,1 +1,1 @@
-https://www.obeythetestinggoat.com/book/chapter_manual_deployment.html
+https://www.obeythetestinggoat.com/book/chapter_fixtures_and_wait_decorator.html
